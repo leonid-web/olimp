@@ -1,0 +1,32 @@
+#ac{
+    float: right;
+}
+#dal, #dal1{
+    float: right;
+}
+body{
+    background-color: darkgrey;
+}
+.navbar, .card{
+    background-color: mediumpurple;
+}
+.card{
+    color: white;
+}
+
+#fio:valid, #email:valid, #type:valid, #date_begin:valid, #date_end:valid, #quest:valid, #photo:valid{
+    transition: 1s;
+    background-color: darkseagreen;
+    color: #1f6fb2;
+}
+#fio:invalid, #email:valid, #type:valid, #date_begin:valid, #date_end:valid, #quest:valid, #photo:valid{
+    transition: 1s;
+}
+button{
+    background-color: purple;
+    color: bisque;
+}
+button:hover{
+    transition: 1s;
+    opacity: 0.5;
+}
