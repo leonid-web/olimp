@@ -42,7 +42,7 @@ $('#dal1').click(function () {
         type= "временный";
         $('#type_p').html('Тип пропуска: '+type+' c '+date_begin+' по '+date_end);
     }
-    $('#photo_src').attr('src', photo);
+    // $('#photo_src').attr('src', photo);
     $('#fio_p').html('ФИО: '+fio);
     $('#email_p').html('Email: '+email);
 
@@ -97,6 +97,40 @@ $('#modal_01').on('show.bs.modal', function (pass) {
     }
     $(this).find('#status').val(old_status);
 
+});
+
+// var base64data= reader.result;
+//
+// $.ajax({
+//    type: "POST",
+//    dataType: "json",
+//    url: "/image-cropper/upload",
+//     data: {'_token': $('meta[name="_token"]').attr('content'), 'image':base64data},
+//    success: function () {
+//         let path= document.location.href+'storage/'+data.filename;
+//         $('#photo_src').attr({
+//             'src': path,
+//         });
+//         $('#url_photo').val(path);
+//    }
+// });
+
+
+function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#photo_src').attr('src', e.target.result);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#photo").change(function(){
+    readURL(this);
 });
 
 

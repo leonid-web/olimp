@@ -24,6 +24,7 @@ class CreatePassesTable extends Migration
             $table->string('quest')->nullable();
             $table->string('status')->default('Рассматривается');
             $table->string('prob')->default('');
+            $table->string('random', 7);
             $table->timestamps();
 
 

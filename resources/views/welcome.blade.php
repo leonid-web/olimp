@@ -83,6 +83,7 @@
                             <div class="step1">
                                 <button type="button" id="dal">Далее</button>
                             </div>
+
                             <div class="form-group step2">
                                 <input id="photo" type="file"  name="photo" required>
                             </div>

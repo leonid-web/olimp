@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/welcome', 'HomeController@index')->name('home');
+Route::get('/{id}', 'HomeController@showProfile')->name('show_profile');
 Route::get('/admin', 'AdminController@index')->name('admin')->middleware('admin');
 Route::get('/operator', 'OperatorController@index')->name('operator')->middleware('operator');
 Route::post('/welcome', 'HomeController@store')->name('store_pass');

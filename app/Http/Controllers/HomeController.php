@@ -14,10 +14,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+//    public function __construct()
+//    {
+//        $this->middleware('auth');
+//    }
 
     /**
      * Show the application dashboard.
@@ -32,11 +32,20 @@ class HomeController extends Controller
         return view('home', ['passes'=>$passes]);
     }
     public function store(Request $request){
+        $characters='qazwsxedcrfvtgbyhnujmikolpQAZWSXEDCRFVTGBYHNUJMIKOLP';
+        $random1=substr(str_shuffle($characters), 0, 5);
+        $random2= rand(10,99);
+        $random = $random1.$random2;
         $filename = time().'.'.$request->photo->getClientOriginalExtension();
         $request->photo->storeAs('public',$filename);
         Pass::create([
                 'photo' => url('storage/'.$filename),
+                'random'=> $random,
             ]+$request->all());
-        return view('home');
+        return redirect()->action('HomeController@showProfile',['id'=>$random]);
+    }
+    public function showProfile($random){
+        $pass=Pass::where('random', $random)->first();
+        return view('profile',['pass'=>$pass]);
     }
 }
