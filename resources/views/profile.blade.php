@@ -13,7 +13,7 @@
                                 <div class="col-md-8">
                                     <p>Фамилия, Имя, Отчество: {{$pass->fio}}</p>
                                     <p>Email: {{$pass->email}}</p>
-                                    <p>Статус: {{$pass->status}}</p>
+                                    @if($pass->status!='Отклонено')<p>Статус: {{$pass->status}}</p> @else <p>Статус: {{$pass->status}} Причина: {{$pass->prob}}</p>@endif
                                     <p>Ссылка на пропуск: <a href="http://{{$_SERVER['SERVER_NAME'].'/'.$pass->random}}">http://{{$_SERVER['SERVER_NAME'].'/'.$pass->random}}</a></p>
                                 </div>
                             </div>

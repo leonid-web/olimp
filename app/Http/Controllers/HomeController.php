@@ -32,7 +32,7 @@ class HomeController extends Controller
         return view('home', ['passes'=>$passes]);
     }
     public function store(Request $request){
-        $characters='qazwsxedcrfvtgbyhnujmikolpQAZWSXEDCRFVTGBYHNUJMIKOLP';
+        $characters='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $random1=substr(str_shuffle($characters), 0, 5);
         $random2= rand(10,99);
         $random = $random1.$random2;
