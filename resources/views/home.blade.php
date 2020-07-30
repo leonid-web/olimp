@@ -8,7 +8,7 @@
                 <div class="card-header" id="head">{{ __('Шаг 1') }}</div>
 
                 <div class="card-body">
-                    <form action="{{  route ('store_pass') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                    <form action="{{  route ('store_pass') }}" method="POST" class="form-horizontal" enctype="multipart/form-data" id="form">
                         @csrf
                         <div class="form-group row step1">
                             <label for="fio"

@@ -17,11 +17,13 @@ $('#date_begin').change(function () {
     let mindate= $('#date_begin').val();
     $('#date_end').attr('min', mindate);
 });
-
+let $form = document.getElementById('form');
 $('#dal').click(function () {
-    $('.step1').hide(1000);
-    $('.step2').show(1000);
-    $('#head').html('Шаг 2');
+    // if( $form.checkValidity() ) {
+        $('.step1').hide(1000);
+        $('.step2').show(1000);
+        $('#head').html('Шаг 2');
+    // }
 });
 $('#dal1').click(function () {
     $('.step2').hide(1000);
@@ -34,7 +36,8 @@ $('#dal1').click(function () {
     let date_begin= $('#date_begin').val();
     let date_end= $('#date_end').val();
     let type='';
-    if (type1===1){
+    // console.log(type1);
+    if (type1==='2'){
        type= "постоянный";
         $('#type_p').html('Тип пропуска: '+type);
     }
@@ -134,3 +137,23 @@ $("#photo").change(function(){
 });
 
 
+// при открытии модального окна редактирования event (панель администратора)
+$('#modal_02').on('show.bs.modal', function (pass) {
+    // получить кнопку, которая его открыло
+    let button = $(pass.relatedTarget);
+    // извлечь информацию из атрибута data-content
+    let content = button.data('content');
+    let id = content.id;
+    // let old_prob = content.prob;
+    let old_status = content.status;
+
+    console.log(content);
+    console.log(old_status);
+
+
+    $(this).find('#edit_form').attr('action', 'operator/passes/' + id + '/update');
+    // $(this).find('#prob').val(old_prob);
+
+    $(this).find('#status').val(old_status);
+
+});

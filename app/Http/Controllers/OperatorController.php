@@ -28,8 +28,14 @@ class OperatorController extends Controller
     {
 //        $users = User::all();
 //        $types = Types::all();
-//        $passes = Pass::all();
-        return view('operator.index');
+        $passes = Pass::all();
+        return view('operator.index', ['passes'=>$passes]);
     }
+    public function update($id, Request $request){
 
+        $pass=Pass::find($id);
+        $pass->update($request->all());
+        return back();
+
+    }
 }
